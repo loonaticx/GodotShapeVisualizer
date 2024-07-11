@@ -1,0 +1,163 @@
+[gd_scene load_steps=3 format=3 uid="uid://dou4po3e0qd0h"]
+
+[ext_resource type="Script" path="res://SphereController.gd" id="1_w35uw"]
+[ext_resource type="Texture2D" uid="uid://b1f2difbrg8c8" path="res://icon.svg" id="3_v2caw"]
+
+[node name="SphereController" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_w35uw")
+
+[node name="SphereControllerPanel" type="Panel" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 183.0
+offset_top = -116.0
+offset_right = 487.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RingSpinBox" type="SpinBox" parent="SphereControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = -141.0
+offset_right = 140.063
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.0
+value = 2.0
+
+[node name="RingLabel" type="Label" parent="SphereControllerPanel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 18.0
+offset_right = 142.0
+offset_bottom = 52.0
+text = "Num Rings"
+
+[node name="RadSegLabel" type="Label" parent="SphereControllerPanel"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 69.0
+offset_right = 151.0
+offset_bottom = 92.0
+text = "Radial Segments"
+
+[node name="ShaderSettingsLabel" type="Label" parent="SphereControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -6.0
+offset_right = 74.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-- Shader Settings --"
+
+[node name="LineWidthLabel" type="Label" parent="SphereControllerPanel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 244.0
+offset_right = 160.0
+offset_bottom = 278.0
+text = "Line Smoothness"
+
+[node name="ShaderWidthSpinBox" type="SpinBox" parent="SphereControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 32.0
+offset_right = 143.063
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 25.0
+
+[node name="LineSmoothnessLabel" type="Label" parent="SphereControllerPanel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 190.0
+offset_right = 160.0
+offset_bottom = 224.0
+text = "Line Width"
+
+[node name="ShaderSmoothnessSpinBox" type="SpinBox" parent="SphereControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 58.0
+offset_top = 85.0
+offset_right = 141.063
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+
+[node name="RadSegSpinBox" type="SpinBox" parent="SphereControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 57.0
+offset_top = -90.0
+offset_right = 140.063
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.0
+value = 2.0
+
+[node name="SmoothShadingButton" type="CheckButton" parent="SphereControllerPanel"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 116.0
+offset_right = 269.0
+offset_bottom = 140.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-446, 168)
+texture = ExtResource("3_v2caw")
+
+[connection signal="value_changed" from="SphereControllerPanel/RingSpinBox" to="." method="changeRingCount"]
+[connection signal="value_changed" from="SphereControllerPanel/ShaderWidthSpinBox" to="." method="changeWireframeDensity"]
+[connection signal="value_changed" from="SphereControllerPanel/ShaderSmoothnessSpinBox" to="." method="changeWireframeSmoothness"]
+[connection signal="value_changed" from="SphereControllerPanel/RadSegSpinBox" to="." method="changeRadSegCount"]
+[connection signal="toggled" from="SphereControllerPanel/SmoothShadingButton" to="." method="toggleSmoothShading"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d31ydkfykit5w"]
+
+[ext_resource type="Script" path="res://SubViewportContainer.gd" id="1_tj4uw"]
+[ext_resource type="PackedScene" uid="uid://dah8jihdg4fur" path="res://sphere_scene.tscn" id="1_wn2jk"]
+[ext_resource type="PackedScene" uid="uid://dqmn2158pucw" path="res://gui/ShapeMenu.tscn" id="2_j45rk"]
+[ext_resource type="PackedScene" uid="uid://dou4po3e0qd0h" path="res://SphereVisualizer.tscn" id="3_jgqsn"]
+
+[node name="Launch" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = -908.0
+offset_top = -470.0
+offset_right = 911.0
+offset_bottom = 573.0
+pivot_offset = Vector2(264, 243)
+stretch = true
+script = ExtResource("1_tj4uw")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1819, 1043)
+render_target_update_mode = 4
+
+[node name="SphereScene" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_wn2jk")]
+
+[node name="ShapeMenu" parent="." instance=ExtResource("2_j45rk")]
+layout_mode = 1
+
+[node name="SphereController" parent="ShapeMenu" instance=ExtResource("3_jgqsn")]
+layout_mode = 1
