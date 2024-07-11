@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d31ydkfykit5w"]
+[gd_scene load_steps=6 format=3 uid="uid://d31ydkfykit5w"]
 
-[ext_resource type="Script" path="res://SubViewportContainer.gd" id="1_tj4uw"]
-[ext_resource type="PackedScene" uid="uid://dah8jihdg4fur" path="res://sphere_scene.tscn" id="1_wn2jk"]
-[ext_resource type="PackedScene" uid="uid://dqmn2158pucw" path="res://gui/ShapeMenu.tscn" id="2_j45rk"]
-[ext_resource type="PackedScene" uid="uid://dou4po3e0qd0h" path="res://SphereVisualizer.tscn" id="3_jgqsn"]
+[ext_resource type="Script" path="res://ShapePanel.gd" id="1_lo3nj"]
+[ext_resource type="PackedScene" uid="uid://1ya87lmh88cy" path="res://gui/TorusController.tscn" id="3_4d15x"]
+[ext_resource type="PackedScene" uid="uid://dou4po3e0qd0h" path="res://gui/SphereController.tscn" id="3_jgqsn"]
+[ext_resource type="Script" path="res://addons/camera.gd" id="3_s1d7q"]
+[ext_resource type="Script" path="res://gui/TorusController.gd" id="4_o2r3n"]
 
 [node name="Launch" type="Control"]
 layout_mode = 3
@@ -16,25 +17,80 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 0
-offset_left = -908.0
-offset_top = -470.0
-offset_right = 911.0
-offset_bottom = 573.0
-pivot_offset = Vector2(264, 243)
-stretch = true
-script = ExtResource("1_tj4uw")
+[node name="ShapeMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lo3nj")
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1819, 1043)
-render_target_update_mode = 4
+[node name="ShapePanel" type="Panel" parent="ShapeMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="SphereScene" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_wn2jk")]
+[node name="MenuSphereButton" type="MenuButton" parent="ShapeMenu/ShapePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -295.08
+offset_right = -20.325
+offset_bottom = -220.06
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+toggle_mode = false
+text = "Sphere"
+flat = false
+metadata/_edit_group_ = true
 
-[node name="ShapeMenu" parent="." instance=ExtResource("2_j45rk")]
+[node name="MenuTorusButton" type="MenuButton" parent="ShapeMenu/ShapePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.5
+offset_top = -295.08
+offset_right = 156.175
+offset_bottom = -220.06
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+toggle_mode = false
+text = "Torus"
+flat = false
+metadata/_edit_group_ = true
+
+[node name="ShapeControllers" type="Control" parent="ShapeMenu"]
+anchors_preset = 0
+
+[node name="SphereController" parent="ShapeMenu/ShapeControllers" instance=ExtResource("3_jgqsn")]
 layout_mode = 1
 
-[node name="SphereController" parent="ShapeMenu" instance=ExtResource("3_jgqsn")]
+[node name="TorusController" parent="ShapeMenu/ShapeControllers" instance=ExtResource("3_4d15x")]
 layout_mode = 1
+script = ExtResource("4_o2r3n")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.837262, -0.253736, 0.484365, 0, 0.885816, 0.464037, -0.546801, -0.388521, 0.74166, 0.722244, 0.54135, 1.069)
+script = ExtResource("3_s1d7q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+transform = Transform3D(0.871237, -0.248377, 0.423386, 0, 0.862533, 0.506001, -0.490863, -0.440846, 0.75147, -0.0201772, 0.119052, -1.39387)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 255.747
+
+[connection signal="pressed" from="ShapeMenu/ShapePanel/MenuSphereButton" to="ShapeMenu" method="useSphereMenu"]
+[connection signal="pressed" from="ShapeMenu/ShapePanel/MenuTorusButton" to="ShapeMenu" method="useTorusMenu"]

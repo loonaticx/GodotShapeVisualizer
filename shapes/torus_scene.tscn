@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ui7js4fietw"]
+
+[ext_resource type="Shader" path="res://shapes/shape_wireoverlay.gdshader" id="1_axyin"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eojwo"]
+render_priority = 0
+shader = ExtResource("1_axyin")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/wire_color = Color(0, 0, 0, 1)
+shader_parameter/wire_width = 1.0
+shader_parameter/wire_smoothness = 0.01
+
+[node name="TorusScene" type="Node3D"]
+
+[node name="ModTorusGeom" type="CSGTorus3D" parent="."]
+snap = 1e-06
+material = SubResource("ShaderMaterial_eojwo")

@@ -1,0 +1,209 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ya87lmh88cy"]
+
+[ext_resource type="Script" path="res://gui/TorusController.gd" id="1_4ird1"]
+
+[node name="TorusController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ird1")
+
+[node name="TorusControllerPanel" type="Panel" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 183.0
+offset_top = -116.0
+offset_right = 487.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InnerRadiusSpinBox" type="SpinBox" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -145.0
+offset_right = 48.063
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.0
+value = 2.0
+
+[node name="InnerRadiusLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 110.0
+offset_bottom = 45.0
+text = "Inner Radius"
+
+[node name="SideCountSpinBox" type="SpinBox" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -64.0
+offset_right = 68.063
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.0
+value = 2.0
+
+[node name="SideCountLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 93.0
+offset_right = 128.0
+offset_bottom = 127.0
+text = "Side Count"
+
+[node name="RingSideCountSpinBox" type="SpinBox" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -27.0
+offset_right = 68.063
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.0
+value = 2.0
+
+[node name="RingSideCountLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 131.0
+offset_right = 128.0
+offset_bottom = 165.0
+text = "Ring Side Count"
+
+[node name="OuterRadiusLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 52.0
+offset_right = 133.0
+offset_bottom = 75.0
+text = "Outer Radius"
+
+[node name="OuterRadiusSpinBox" type="SpinBox" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -106.0
+offset_right = 48.063
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 2.0
+value = 2.0
+
+[node name="ShaderSettingsLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 43.0
+offset_right = 74.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-- Shader Settings --"
+
+[node name="LineWidthLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 268.0
+offset_right = 160.0
+offset_bottom = 302.0
+text = "Line Smoothness"
+
+[node name="ShaderWidthSpinBox" type="SpinBox" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 72.0
+offset_right = 143.063
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 25.0
+
+[node name="LineSmoothnessLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 230.0
+offset_right = 160.0
+offset_bottom = 264.0
+text = "Line Width"
+
+[node name="ShaderSmoothnessSpinBox" type="SpinBox" parent="TorusControllerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 58.0
+offset_top = 109.0
+offset_right = 141.063
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SmoothShadingButton" type="CheckButton" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 168.0
+offset_right = 262.0
+offset_bottom = 192.0
+button_pressed = true
+
+[node name="SmoothShadingLabel" type="Label" parent="TorusControllerPanel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 165.0
+offset_right = 135.0
+offset_bottom = 188.0
+text = "Smooth Shading"
+
+[connection signal="value_changed" from="TorusControllerPanel/InnerRadiusSpinBox" to="." method="changeInnerRadius"]
+[connection signal="value_changed" from="TorusControllerPanel/SideCountSpinBox" to="." method="changeSideCount"]
+[connection signal="value_changed" from="TorusControllerPanel/RingSideCountSpinBox" to="." method="changeRingSideCount"]
+[connection signal="value_changed" from="TorusControllerPanel/OuterRadiusSpinBox" to="." method="changeOuterRadius"]
+[connection signal="value_changed" from="TorusControllerPanel/ShaderWidthSpinBox" to="." method="changeWireframeDensity"]
+[connection signal="value_changed" from="TorusControllerPanel/ShaderSmoothnessSpinBox" to="." method="changeWireframeSmoothness"]
+[connection signal="toggled" from="TorusControllerPanel/SmoothShadingButton" to="." method="toggleSmoothShading"]

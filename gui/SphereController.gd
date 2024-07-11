@@ -2,7 +2,7 @@ extends Node
 
 #@onready var SpherePanel = $Panel
 #@onready var SphereGeom = $SphereScene/ModSphereGeom
-@onready var SphereScene = preload("res://sphere_scene.tscn").instantiate()
+@onready var SphereScene = preload("res://shapes/sphere_scene.tscn").instantiate()
 #@onready var SphereScene = $SphereScene
 
 # https://godotshaders.com/shader/wireframe-shader-godot-4-0/

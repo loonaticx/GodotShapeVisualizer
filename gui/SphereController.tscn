@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dou4po3e0qd0h"]
 
-[ext_resource type="Script" path="res://SphereController.gd" id="1_w35uw"]
+[ext_resource type="Script" path="res://gui/SphereController.gd" id="1_w35uw"]
 [ext_resource type="Texture2D" uid="uid://b1f2difbrg8c8" path="res://icon.svg" id="3_v2caw"]
 
 [node name="SphereController" type="Control"]
@@ -151,6 +151,15 @@ offset_left = 225.0
 offset_top = 116.0
 offset_right = 269.0
 offset_bottom = 140.0
+button_pressed = true
+
+[node name="SmoothShadingLabel" type="Label" parent="SphereControllerPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 116.0
+offset_right = 148.0
+offset_bottom = 139.0
+text = "Smooth Shading"
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-446, 168)
