@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d31ydkfykit5w"]
+[gd_scene load_steps=5 format=3 uid="uid://d31ydkfykit5w"]
 
 [ext_resource type="Script" path="res://ShapePanel.gd" id="1_lo3nj"]
 [ext_resource type="PackedScene" uid="uid://1ya87lmh88cy" path="res://gui/TorusController.tscn" id="3_4d15x"]
 [ext_resource type="PackedScene" uid="uid://dou4po3e0qd0h" path="res://gui/SphereController.tscn" id="3_jgqsn"]
 [ext_resource type="Script" path="res://addons/camera.gd" id="3_s1d7q"]
-[ext_resource type="Script" path="res://gui/TorusController.gd" id="4_o2r3n"]
 
 [node name="Launch" type="Control"]
 layout_mode = 3
@@ -28,11 +27,9 @@ script = ExtResource("1_lo3nj")
 
 [node name="ShapePanel" type="Panel" parent="ShapeMenu"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="MenuSphereButton" type="MenuButton" parent="ShapeMenu/ShapePanel"]
 layout_mode = 1
@@ -80,7 +77,6 @@ layout_mode = 1
 
 [node name="TorusController" parent="ShapeMenu/ShapeControllers" instance=ExtResource("3_4d15x")]
 layout_mode = 1
-script = ExtResource("4_o2r3n")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.837262, -0.253736, 0.484365, 0, 0.885816, 0.464037, -0.546801, -0.388521, 0.74166, 0.722244, 0.54135, 1.069)

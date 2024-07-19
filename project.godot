@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="New"
+config/name="ShapeVisualizer"
 run/main_scene="res://Launch.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
